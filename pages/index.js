@@ -4,7 +4,7 @@ import Tweet from "../components/tweet";
 const App = ({ tweets }) => {
   return (
     <div>
-      <h1>Hey all</h1>
+      <h1>Hey!</h1>
       {tweets.map(t => {
         return <Tweet key={t.handle} {...t} />;
       })}
