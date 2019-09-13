@@ -3,27 +3,11 @@ import Tweet from "../components/tweet";
 
 const App = ({ tweets }) => {
   return (
-    <div>
-      <h1>Hey!</h1>
+    <div style={{ padding: "2rem" }}>
+      <h1 style={{ fontSize: "3rem" }}>Catter!</h1>
       {tweets.map(t => {
         return <Tweet key={t.handle} {...t} />;
       })}
-      <style global jsx>{`
-        *,
-        *::after,
-        *::before {
-          box-sizing: border-box;
-        }
-
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          padding: 3rem 0;
-          background-color: #8b80f9;
-        }
-      `}</style>
     </div>
   );
 };

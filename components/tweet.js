@@ -12,8 +12,19 @@ const Tweet = ({ className, handle, name, profilePic, content, media }) => {
                 <img src={profilePic} alt="profile picture" />
               </div>
             </Link>
-            <h1 className="card__name">{name}</h1>
-            <h2 className="card__handle">@{handle}</h2>
+            <div className="card__profile-names">
+              <h1 className="card__name">{name}</h1>
+              <h2 className="card__handle">
+                <span
+                  style={{ fontSize: "1rem" }}
+                  aria-label="cat face"
+                  role="img"
+                >
+                  😸
+                </span>
+                {handle}
+              </h2>
+            </div>
           </div>
           <p className="card__content">{content}</p>
           <div className="card__media">
@@ -24,10 +35,10 @@ const Tweet = ({ className, handle, name, profilePic, content, media }) => {
       <style jsx>{`
         .card {
           position: relative;
-          width: 450px;
+          max-width: 600px;
           min-height: 250px;
           border-radius: 12px;
-          box-shadow: 10px 0px 40px 0px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.6);
           background-color: #ffffff;
           margin-bottom: 2rem;
         }
@@ -40,6 +51,10 @@ const Tweet = ({ className, handle, name, profilePic, content, media }) => {
           z-index: 2;
         }
 
+        .card__profile-names {
+          margin-left: 1rem;
+        }
+
         .card__profile:hover {
           cursor: pointer;
         }
@@ -50,8 +65,8 @@ const Tweet = ({ className, handle, name, profilePic, content, media }) => {
 
         .card__header {
           position: relative;
-          margin-bottom: 1rem;
           padding: 1rem 0;
+          display: flex;
         }
 
         .card__name {
@@ -81,6 +96,10 @@ const Tweet = ({ className, handle, name, profilePic, content, media }) => {
           margin-top: 1rem;
           overflow: hidden;
           border-radius: 8px;
+          max-height: 200px;
+          display: flex;
+          align-items: center;
+          justify-contnet: center;
         }
 
         .card__media img {
