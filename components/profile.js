@@ -1,7 +1,7 @@
-import fetch from "isomorphic-unfetch";
-import Tweet from "../../components/tweet";
+import React from "react";
+import Tweet from "./tweet";
 
-const ProfileID = ({ tweets }) => {
+const Profile = ({ tweets }) => {
   const { profilePic, handle } = tweets[0] || {};
 
   return (
@@ -83,22 +83,4 @@ const ProfileID = ({ tweets }) => {
   );
 };
 
-ProfileID.getInitialProps = async context => {
-  const { id } = context.query;
-
-  const host = context.req
-    ? `${context.req.headers["x-forwarded-proto"]}://${
-        context.req.headers["x-forwarded-host"]
-      }`
-    : new Url(location.href).origin;
-
-  const response = await fetch(`${host}/api/timeline?id=${id}`);
-
-  if (response.ok) {
-    return { tweets: await response.json() };
-  }
-
-  return { tweets: [] };
-};
-
-export default ProfileID;
+export default Profile;
